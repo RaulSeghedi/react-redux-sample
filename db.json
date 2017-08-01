@@ -1,0 +1,20 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Dunkirk",
+      "year": "2017",
+      "description": "Allied soldiers from Belgium, the British Empire and France are surrounded by the German army and evacuated during a fierce battle in World War II.",
+      "poster": "dunkirk.jpg",
+      "trailer": "dunkirk.mkv"
+    },
+    {
+      "id": 1,
+      "title": "Shot Caller",
+      "year": "2017",
+      "description": "A newly released prison gangster is forced by the leaders of his gang to orchestrate a major crime with a brutal rival gang on the streets of Southern California.",
+      "poster": "shotcaller.jpg",
+      "trailer": "shotcaller.mkv"
+    }
+  ]
+}
