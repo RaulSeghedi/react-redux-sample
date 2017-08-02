@@ -15,37 +15,30 @@
       "description": "A newly released prison gangster is forced by the leaders of his gang to orchestrate a major crime with a brutal rival gang on the streets of Southern California.",
       "poster": "shotcaller.jpg",
       "trailer": "shotcaller.mkv"
-    }
-
-  
+    },
     {
-      "id":3,
+      "id": 3,
       "title": "Shutter island",
       "year": "2010",
       "description": "In 1954, a U.S. Marshal investigates the disappearance of a murderer, who escaped from a hospital for the criminally insane",
       "poster": "shutter.jpg",
       "trailer": "shutter.mkv"
-    }
-
+    },
     {
-      "id":4,
+      "id": 4,
       "title": "Moonlight",
       "year": "2016",
       "description": "A chronicle of the childhood, adolescence and burgeoning adulthood of a young, African-American, gay man growing up in a rough neighborhood of Miami",
       "poster": "moonlight.jpg",
       "trailer": "moonlight.mkv"
-      
-    }
-
+    },
     {
-      "id":6,
+      "id": 6,
       "title": "Hell or High Water",
       "year": "2016",
       "description": "A divorced father and his ex-con older brother resort to a desperate scheme in order to save their family's ranch in West Texas.",
       "poster": "hell.jpg",
       "trailer": "hell.mkv"
-      
     }
-    
   ]
 }
