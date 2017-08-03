@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "id": 0,
+      "id": 1,
       "title": "Dunkirk",
       "year": "2017",
       "description": "Allied soldiers from Belgium, the British Empire and France are surrounded by the German army and evacuated during a fierce battle in World War II.",
@@ -9,7 +9,7 @@
       "trailer": "dunkirk.mkv"
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "Shot Caller",
       "year": "2017",
       "description": "A newly released prison gangster is forced by the leaders of his gang to orchestrate a major crime with a brutal rival gang on the streets of Southern California.",
@@ -33,7 +33,7 @@
       "trailer": "moonlight.mkv"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Hell or High Water",
       "year": "2016",
       "description": "A divorced father and his ex-con older brother resort to a desperate scheme in order to save their family's ranch in West Texas.",
