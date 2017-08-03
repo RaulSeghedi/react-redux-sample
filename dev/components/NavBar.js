@@ -7,7 +7,7 @@ class NavBar extends Component {
                 <div>
                     <ul>
                         <li>Home</li>
-                        <li>Manage</li>
+                        <li>Manage this</li>
                     </ul>
                 </div>
             </nav>
