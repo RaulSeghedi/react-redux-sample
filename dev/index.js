@@ -4,13 +4,16 @@ import App from './App';
 import {createStore} from 'redux'
 import {Provider} from 'react-redux';
 import allReducers from './reducers/index';
+import {BrowserRouter} from 'react-router-dom'
 
 const store = createStore(allReducers);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>
     ,
     document.getElementById('root')
 );

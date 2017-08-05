@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
-import MovieList from './containers/MovieList';
+import React, {Component} from 'react'
 import NavBar from './components/NavBar'
+import {Route} from 'react-router-dom';
+import Home from './components/Home';
+import Manage from './components/Manage';
+
 
 export default class App extends Component {
     render() {
@@ -10,7 +13,8 @@ export default class App extends Component {
                 <hr/>
                 <NavBar/>
                 <hr/>
-                <MovieList/>
+                <Route exact path='/' component={Home}/>
+                <Route path='/manage' component={Manage}/>
             </div>
         )
     }

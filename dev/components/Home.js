@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import MoviesList from '../containers/MovieList';
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <h3>Home page</h3>
+                <MoviesList/>
             </div>
         )
     }
