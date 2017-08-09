@@ -8,6 +8,8 @@ const Header = () => {
                        activeClassName="active">Home</IndexLink>
             {" | "}
             <Link to="/filme" activeClassName="active">Filme</Link>
+             {" | "}
+            <Link to="/manage" activeClassName="active">Manage</Link>
         </nav>
     );
 };

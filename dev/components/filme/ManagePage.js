@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react';
 import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import FilmeList from './FilmeList';
+import ManageFilmeList from './ManageFilmeList';
 import * as actions from '../../actions/filmeActions';
 
-class FilmePage extends React.Component {
+class ManagePage extends React.Component {
     componentWillMount() {
         if (this.props.filme[0].id == '') {
             this.props.actions.loadFilme();
@@ -16,9 +16,9 @@ class FilmePage extends React.Component {
         const filme = this.props.filme;
         return (
             <div className="col-md-12">
-                <h1>Filme</h1>
+                <h1>Filme <Link to={'/manage/new'} className="btn btn-primary">+ film</Link></h1>
                 <div className="col-md-4">
-                    <FilmeList filme={filme}/>
+                    <ManageFilmeList filme={filme}/>
                 </div>
                 <div className="col-md-8">
                     {this.props.children}
@@ -27,7 +27,7 @@ class FilmePage extends React.Component {
         );
     }
 }
-FilmePage.propTypes = {
+ManagePage.propTypes = {
     filme: PropTypes.array.isRequired,
     children: PropTypes.object
 };
@@ -48,4 +48,4 @@ function mapDispatchToProps(dispatch) {
     return {actions: bindActionCreators(actions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilmePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagePage);

@@ -4,6 +4,12 @@ import {bindActionCreators} from 'redux';
 import * as filmeActions from '../../actions/filmeActions';
 
 class FilmPage extends React.Component {
+	constructor(props){
+		super(props);
+		this.state={
+			film: this.props.film
+		}
+	}
 	render() {
         return (
             <div className="col-md-8 col-md-offset-2">
@@ -16,6 +22,9 @@ class FilmPage extends React.Component {
         );
 	}
 }
+FilmPage.propTypes ={
+	film: PropTypes.object.isRequired
+};
 function mapStateToProps(state, ownProps) {  
   let film = {title: '', year: '', description: '', poster: '', trailer:''};
   const filmId = ownProps.params.id;
