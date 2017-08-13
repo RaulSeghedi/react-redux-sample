@@ -6,6 +6,8 @@ import FilmePage from './components/filme/FilmePage';
 import FilmPage from './components/filme/FilmPage';
 import ManagePage from './components/filme/ManagePage';
 import ManageFilmPage from './components/filme/ManageFilmPage';
+import ManageNewFilmPage from './components/filme/ManageNewFilmPage';
+
 
 
 
@@ -16,6 +18,7 @@ export default (
             <Route path="/filme/:id" component={FilmPage}/>
         </Route>
         <Route path="/manage" component={ManagePage}>
+            <Route path="/manage/new" component={ManageNewFilmPage}/>
             <Route path="/manage/:id" component={ManageFilmPage}/>
         </Route>
     </Route>

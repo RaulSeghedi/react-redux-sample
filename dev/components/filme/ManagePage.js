@@ -11,12 +11,11 @@ class ManagePage extends React.Component {
             this.props.actions.loadFilme();
         }
     }
-
     render() {
         const filme = this.props.filme;
         return (
             <div className="col-md-12">
-                <h1>Filme <Link to={'/manage/new'} className="btn btn-primary">+ film</Link></h1>
+                <h1>Filme <Link to={'/manage/new'} className="btn btn-primary">+ Adauga film</Link></h1>
                 <div className="col-md-4">
                     <ManageFilmeList filme={filme}/>
                 </div>

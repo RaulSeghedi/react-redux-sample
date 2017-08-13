@@ -15,28 +15,34 @@ class ManageFilmPage extends React.Component {
     this.toggleEdit=this.toggleEdit.bind(this);
     this.updateFilmState = this.updateFilmState.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
-        if (this.props.film.id != nextProps.film.id) {
-            this.setState({film: nextProps.film});
-        }
-        this.setState({saving: false, isEditing: false});
+    if (this.props.film.id != nextProps.film.id) {
+        this.setState({film: nextProps.film});
     }
+    this.setState({saving: false, isEditing: false});
+  }
+
   toggleEdit(){
     this.setState({isEditing: !this.state.isEditing})
   }
+
   saveFilm(event){
-        console.log(event);
         event.preventDefault();
-        this.setState({saving: true});
+        // this.setState({saving: true});
         this.props.actions.updateFilm(this.state.film);
   }
-  updateFilmState(event) {
-        
-        const field = event.target.name;
-        const film = this.state.film;
-        film[field] = event.target.value;
-        return this.setState({film: film})
+  redirect() {
+    browserHistory.push('/manage');
+  }
+
+  updateFilmState(event) {    
+    const field = event.target.name;
+    const film = this.state.film;
+    film[field] = event.target.value;
+    return this.setState({film: film})
   }
 	render() {
     if (this.state.isEditing) {
@@ -67,11 +73,16 @@ ManageFilmPage.propTypes ={
   film: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
+function getFilmById(filme, id) {
+    let film = filme.find(film => film.id == id)
+    return Object.assign({}, film)
+  }
 function mapStateToProps(state, ownProps) {  
   let film = {title: '', year: '', description: '', poster: '', trailer:''};
   const filmId = ownProps.params.id;
-  if (state.filme.length > 0) {
-    film = Object.assign({}, state.filme.find(film => film.id == filmId))
+  if (filmId && state.filme.length > 0) {
+    // film = Object.assign({}, state.filme.find(film => film.id == filmId))
+    film = getFilmById(state.filme, ownProps.params.id);
   }
   return {film: film};
 }

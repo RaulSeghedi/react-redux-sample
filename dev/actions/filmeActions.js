@@ -3,6 +3,9 @@ import filmeApi from '../api/filmeApi';
 export function loadFilmeSuccess(filme) {
     return {type: types.LOAD_FILME_SUCCESS, filme};
 }
+export function createFilmSuccess(film) {  
+  return {type: types.CREATE_FILM_SUCCESS, film}
+}
 export function updateFilmSuccess(film) {
     return {type: types.UPDATE_FILM_SUCCESS, film};
 }
@@ -19,10 +22,19 @@ export function loadFilme() {
 export function updateFilm(film) {
     return function (dispatch) {
         return filmeApi.updateFilm(film).then(responseFilm => {
-            console.log(responseFilm);
             dispatch(updateFilmSuccess(responseFilm));
         }).catch(error => {
             throw(error);
         });
     };
+}
+export function createFilm(film) {  
+  return function (dispatch) {
+    return filmeApi.createFilm(film).then(responseFilm => {
+      dispatch(createFilmSuccess(responseFilm));
+      return responseFilm;
+    }).catch(error => {
+      throw(error);
+    });
+  };
 }
