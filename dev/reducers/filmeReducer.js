@@ -17,6 +17,15 @@ export default function catReducer(state = initialState.filme, action) {
             ...state.filter(film => film.id !== action.film.id),
             Object.assign({}, action.film)
         ];
+        case types.DELETE_FILM_SUCCESS: {
+          const newState = Object.assign([], state);
+          const indexOfFilmToDelete = state.findIndex(film => {
+            return film.id == action.film.id
+          })
+          newState.splice(indexOfFilmToDelete, 1);
+          browserHistory.push('/manage');
+          return newState;
+        }
         default:
             return state;
     }

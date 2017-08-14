@@ -16,6 +16,7 @@ class ManageFilmPage extends React.Component {
     this.updateFilmState = this.updateFilmState.bind(this);
     this.saveFilm = this.saveFilm.bind(this);
     this.redirect = this.redirect.bind(this);
+    this.deleteFilm = this.deleteFilm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,6 +37,9 @@ class ManageFilmPage extends React.Component {
   }
   redirect() {
     browserHistory.push('/manage');
+  }
+  deleteFilm() {
+    this.props.actions.deleteFilm(this.state.film)
   }
 
   updateFilmState(event) {    
@@ -64,7 +68,8 @@ class ManageFilmPage extends React.Component {
             <h1>Descriere: {this.state.film.description}</h1>
             <h1>Poster: {this.state.film.poster}</h1>
             <h1>Trailer: {this.state.film.trailer}</h1>
-            <button onClick={this.toggleEdit}>Edit</button>
+            <button className="btn btn-default" onClick={this.toggleEdit}>Edit</button>
+            <button className="btn btn-default" onClick={this.deleteFilm}>Delete</button>
         </div>
     );
 	}

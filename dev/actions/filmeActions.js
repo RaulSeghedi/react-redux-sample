@@ -9,6 +9,9 @@ export function createFilmSuccess(film) {
 export function updateFilmSuccess(film) {
     return {type: types.UPDATE_FILM_SUCCESS, film};
 }
+export function deleteFilmSuccess(film) {  
+  return {type: types.DELETE_FILM_SUCCESS, film}
+}
 
 export function loadFilme() {
     return function (dispatch) {
@@ -36,5 +39,16 @@ export function createFilm(film) {
     }).catch(error => {
       throw(error);
     });
+  };
+}
+export function deleteFilm(film) {  
+  return function(dispatch) {
+    return filmeApi.deleteFilm(film).then(() => {
+      console.log(`Deleted ${film.id}`)
+      dispatch(deleteFilmSuccess(film));
+      return;
+    }).catch(error => {
+      throw(error);
+    })
   };
 }
