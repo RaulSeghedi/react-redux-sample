@@ -4,9 +4,13 @@ import {connect} from 'react-redux';
 class MovieList extends Component {
 
     createItemsList(){
-        return this.props.movies.map((movie)=>{
-            return <li key={movie.id}>{movie.title}</li>
-        })
+        return this.props.moviesReducer.map((movie)=>{
+            return <li key={movie.id} style={{listStyleType: "none"}}>
+                <strong>Title: </strong>{movie.title}<br/>
+                <strong>Year: </strong> {movie.year}<br/>
+                <strong>Description: </strong>{movie.description}<br/><br/>
+                </li>
+        });
     }
 
     render() {
@@ -20,7 +24,7 @@ class MovieList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies
+        moviesReducer: state.moviesReducer
     }
 };
 
