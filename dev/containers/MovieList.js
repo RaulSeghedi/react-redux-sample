@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {selectMovie} from "../actions/loadMovies";
 
 class MovieList extends Component {
 
-    createItemsList(){
-        return this.props.moviesReducer.map((movie)=>{
-            return <li key={movie.id} style={{listStyleType: "none"}}>
-                <strong>Title: </strong>{movie.title}<br/>
-                <strong>Year: </strong> {movie.year}<br/>
-                <strong>Description: </strong>{movie.description}<br/><br/>
-                </li>
+    createItemsList() {
+        return this.props.moviesReducer.map((movie) => {
+            return <li
+                key={movie.id}
+                style={{listStyleType: "none"}}
+                onClick={() => this.props.selectMovie(movie)}
+            >
+                {movie.title}<br/>
+            </li>
         });
     }
 
@@ -28,4 +32,8 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(MovieList);
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({selectMovie: selectMovie}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);

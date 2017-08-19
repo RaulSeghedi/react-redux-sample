@@ -8,8 +8,9 @@ import {BrowserRouter} from 'react-router-dom'
 import thunk from 'redux-thunk';
 import {loadMovies} from './actions/loadMovies';
 import promise from 'redux-promise-middleware'
+import logger from 'redux-logger';
 
-const store = createStore(allReducers, applyMiddleware(promise(), thunk));
+const store = createStore(allReducers, applyMiddleware(logger(), promise(), thunk));
 store.dispatch(loadMovies());
 
 ReactDOM.render(
