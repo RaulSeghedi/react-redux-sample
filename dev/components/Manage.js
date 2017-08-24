@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import MovieListForManage from '../containers/MovieListForManage';
+import AddMovie from '../containers/AddMovie';
+import UpdateMovie from '../containers/UpdateMovie';
 
 class Manage extends Component {
     render() {
@@ -13,18 +15,8 @@ class Manage extends Component {
                     <div>
                         <h3>Add movie</h3>
                     </div>
-
                     <div>
-                        <h6>Title</h6>
-                        <input type='text' size='48'/>
-
-                        <h6>Year</h6>
-                        <input type='number' size='48'/>
-
-                        <h6>Description</h6>
-                        <textarea cols='50' rows='5'/>
-                        <br/>
-                        <button>Save</button>
+                        <AddMovie/>
                     </div>
 
                     <br/>
@@ -32,19 +24,10 @@ class Manage extends Component {
                     <div>
                         <h3>Update movie</h3>
                     </div>
-
                     <div>
-                        <h6>Title</h6>
-                        <input type='text' size='48'/>
-
-                        <h6>Year</h6>
-                        <input type='number' size='48'/>
-
-                        <h6>Description</h6>
-                        <textarea cols='50' rows='5'/>
-                        <br/>
-                        <button>Save</button>
+                        <UpdateMovie/>
                     </div>
+
                 </div>
                 <div>
                     <MovieListForManage/>

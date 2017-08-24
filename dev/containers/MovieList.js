@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {selectMovie} from "../actions/loadMovies";
+import {selectMovie} from "../actions/selectMovie";
 
 class MovieList extends Component {
 

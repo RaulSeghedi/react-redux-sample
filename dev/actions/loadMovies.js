@@ -1,7 +1,8 @@
 export function loadMovies() {
     return (dispatch) => {
         fetch("http://localhost:3000/movies", {
-            method: 'GET'
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
         })
             .then(res => {
                 return res.json();
@@ -13,20 +14,13 @@ export function loadMovies() {
     }
 }
 
-const getMovies = payload => {
+const getMovies = movie => {
     return {
         type: 'LOAD_MOVIES',
-        payload
-    }
-};
-
-export const selectMovie = movie => {
-    console.log('selected');
-    return {
-        type: 'MOVIE_SELECTED',
         payload: movie
     }
 };
+
 
 // export const loadMovies = () => {
 //     return {
@@ -46,23 +40,3 @@ export const selectMovie = movie => {
 //     }
 // };
 
-// const getAllMovies = () => {
-//     return fetch('http://localhost:3000/movies').then(response => {
-//         return response.json();
-//     }).catch(error => {
-//         return console.log('We have an error ', error);
-//     });
-// };
-//
-// export const loadMovies = () => {
-//     return function (dispatch) {
-//         return getAllMovies().then(movie => {
-//             dispatch({
-//                 type: 'LOAD_MOVIES',
-//                 payload: movie
-//             });
-//         }).catch(error => {
-//             throw (error);
-//         })
-//     }
-// };

@@ -14,7 +14,7 @@ export default class App extends Component {
                 <hr/>
                 <Switch>
                     <Route exact path='/' component={Home}/>
-                    <Route exact path='/manage' component={Manage}/>
+                    <Route path='/manage' component={Manage}/>
                 </Switch>
             </div>
         )

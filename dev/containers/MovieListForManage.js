@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {addMovie} from '../actions/addMovie';
 
 class MovieListForManage extends Component {
 
@@ -44,5 +46,9 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({addMovie: addMovie}, dispatch);
+};
 
-export default connect(mapStateToProps)(MovieListForManage);
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListForManage);
