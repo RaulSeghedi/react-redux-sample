@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MovieListForManage from '../containers/MovieListForManage';
 import AddMovie from '../containers/AddMovie';
 import UpdateMovie from '../containers/UpdateMovie';
+import {connect} from "react-redux";
 
 class Manage extends Component {
     render() {
@@ -37,4 +38,10 @@ class Manage extends Component {
     }
 }
 
-export default Manage;
+const mapStateToProps = state => {
+    return {
+        movies: state.moviesReducer
+    }
+};
+
+export default connect(mapStateToProps)(Manage);

@@ -1,32 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addMovie} from '../actions/addMovie';
+import {deleteMovie} from '../actions/deleteMovie';
 
 class MovieListForManage extends Component {
 
-    checkFunction(){
+    checkUpdateFunction() {
         return console.log('updated movie');
     }
 
-    checkFunction2(){
-        return console.log('deleted movie');
-    }
-
-
     createItemsList() {
-        return this.props.moviesReducer.map((movie) => {
+        return this.props.movies.map((movie) => {
             return <li
                 key={movie.id}
                 style={{listStyleType: "none"}}
             >
                 <div>
                     {movie.title}<br/>
-                    {movie.year}<br/>
-                    {movie.description}<br/>
-                    <button onClick={this.checkFunction.bind(this)}>UPDATE</button>
-                    <button onClick={this.checkFunction2.bind(this)}>DELETE</button>
-                </div><br/>
+                    <button onClick={this.checkUpdateFunction.bind(this)}>UPDATE</button>
+                    <button onClick={() => this.props.deleteMovie(movie.id)}>DELETE</button>
+                </div>
+                <br/>
             </li>
         });
     }
@@ -42,13 +36,12 @@ class MovieListForManage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        moviesReducer: state.moviesReducer
+        movies: state.moviesReducer,
     }
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({addMovie: addMovie}, dispatch);
+    return bindActionCreators({deleteMovie: deleteMovie}, dispatch)
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListForManage);
